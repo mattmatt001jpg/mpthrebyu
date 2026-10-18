@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Perspective of Tourism & Hospitality - Long Quiz</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti for winning celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-950 min-h-screen text-slate-100 flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4 flex items-center justify-between shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center">
+                <i class="fa-solid fa-earth-americas text-xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg md:text-xl tracking-tight text-white">Tourism & Hospitality Quiz</h1>
+                <p class="text-xs text-indigo-300">Prof. Wynona Lei Malicse • Midterm Review</p>
+            </div>
+        </div>
+        <div id="quiz-header-info" class="hidden items-center space-x-4">
+            <div class="bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 flex items-center space-x-2 text-sm">
+                <i class="fa-regular fa-clock text-indigo-400"></i>
+                <span id="timer-display" class="font-mono font-bold text-indigo-200">45:00</span>
+            </div>
+            <div class="hidden sm:flex bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 items-center space-x-2 text-sm">
+                <i class="fa-solid fa-user text-blue-400"></i>
+                <span id="student-name-display" class="font-medium text-slate-200"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+
+        <!-- 1. WELCOME SCREEN -->
+        <section id="screen-welcome" class="fade-in bg-slate-900/90 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-2xl mx-auto text-center space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 px-4 py-1.5 rounded-full text-indigo-300 text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Comprehensive Mastery Assessment</span>
+                </div>
+                
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Macro Perspective of <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Tourism & Hospitality</span>
+                </h2>
+                
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                    Test your expertise across <strong class="text-white">40 expertly crafted items</strong> covering Direct Providers & Support Services, International & National Organizations (UNWTO, IATA, DOT, TIEZA, etc.), Professional Associations, Economic/Social/Cultural/Environmental Impacts, and Host-Visitor Typologies.
+                </p>
+
+                <div class="bg-slate-800/60 border border-slate-700/80 rounded-2xl p-5 text-left space-y-3 shadow-inner">
+                    <h4 class="text-sm font-semibold text-indigo-300 uppercase tracking-wide flex items-center">
+                        <i class="fa-solid fa-circle-info mr-2"></i> Quiz Breakdown:
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300">
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="font-bold text-indigo-400 block text-sm mb-0.5">15 Items</span>
+                            Multiple Choice Questions
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="font-bold text-cyan-400 block text-sm mb-0.5">10 Items</span>
+                            Identification Questions
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="font-bold text-emerald-400 block text-sm mb-0.5">15 Items</span>
+                            True or False Questions
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <div class="text-left max-w-md mx-auto">
+                        <label for="input-student-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                            Enter Your Full Name / Student ID:
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                                <i class="fa-solid fa-id-card"></i>
+                            </span>
+                            <input type="text" id="input-student-name" placeholder="e.g. Juan Dela Cruz" 
+                                class="w-full bg-slate-950 border border-slate-700 text-slate-100 placeholder-slate-500 text-sm rounded-xl pl-11 pr-4 py-3.5 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition shadow-sm">
+                        </div>
+                        <p id="name-error" class="text-rose-400 text-xs mt-1.5 hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Please enter your name to start the quiz.</p>
+                    </div>
+
+                    <button onclick="startQuiz()" class="w-full max-w-md bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-indigo-500/25 transition duration-200 flex items-center justify-center space-x-2 text-base mx-auto">
+                        <span>Begin 40-Item Long Quiz</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. QUIZ SCREEN -->
+        <section id="screen-quiz" class="hidden space-y-6 fade-in">
+            <!-- Quiz Progress & Navigation Bar -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3 w-full md:w-auto">
+                    <span id="question-category-tag" class="bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Multiple Choice
+                    </span>
+                    <span class="text-slate-400 text-sm font-medium">
+                        Question <strong id="current-q-num" class="text-white">1</strong> of <strong class="text-white">40</strong>
+                    </span>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="w-full md:w-64 bg-slate-800 h-2.5 rounded-full overflow-hidden border border-slate-700">
+                    <div id="progress-bar-fill" class="bg-gradient-to-r from-indigo-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <button onclick="jumpToQuestion(currentQuestionIndex - 1)" id="btn-prev" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold py-2 px-3 rounded-lg border border-slate-700 transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center space-x-1">
+                        <i class="fa-solid fa-chevron-left mr-1"></i> Prev
+                    </button>
+                    <button onclick="jumpToQuestion(currentQuestionIndex + 1)" id="btn-next" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2 px-3 rounded-lg transition flex items-center space-x-1">
+                        <span>Next</span> <i class="fa-solid fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl backdrop-blur-xl space-y-6">
+                <div class="space-y-3">
+                    <div class="flex items-start justify-between">
+                        <h3 id="question-text" class="text-lg md:text-2xl font-semibold text-white leading-snug">
+                            <!-- Question Text injected via JS -->
+                        </h3>
+                    </div>
+                    <p id="question-hint" class="text-xs text-indigo-300 italic hidden">
+                        <!-- Hint -->
+                    </p>
+                </div>
+
+                <!-- Options / Input Area -->
+                <div id="answer-options-container" class="space-y-3 pt-2">
+                    <!-- Dynamic options or input field -->
+                </div>
+
+                <!-- Instant feedback banner (if toggled) -->
+                <div id="instant-feedback-box" class="hidden rounded-xl p-4 text-sm border">
+                    <!-- Feedback text -->
+                </div>
+
+                <!-- Footer Navigation inside card -->
+                <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2 overflow-x-auto max-w-xs sm:max-w-md py-1" id="question-dots">
+                        <!-- Generated via JS for quick navigation -->
+                    </div>
+
+                    <button onclick="confirmSubmitQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-emerald-500/20 transition text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Submit Quiz</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RESULTS & REVIEW SCREEN -->
+        <section id="screen-results" class="hidden space-y-8 fade-in">
+            <!-- Score Summary Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-xl text-center space-y-6 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-3xl shadow-inner mb-2">
+                    <i id="result-trophy-icon" class="fa-solid fa-award"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Quiz Completed!</h2>
+                    <p class="text-slate-400 text-sm">Great effort, <strong id="res-student-name" class="text-white"></strong>. Here is your comprehensive score breakdown.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto py-2">
+                    <div class="bg-slate-950/70 border border-slate-800 p-5 rounded-2xl">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider block mb-1 font-semibold">Total Score</span>
+                        <span id="res-score" class="text-3xl font-extrabold text-indigo-400">0 / 40</span>
+                    </div>
+                    <div class="bg-slate-950/70 border border-slate-800 p-5 rounded-2xl">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider block mb-1 font-semibold">Percentage</span>
+                        <span id="res-percentage" class="text-3xl font-extrabold text-cyan-400">0%</span>
+                    </div>
+                    <div class="bg-slate-950/70 border border-slate-800 p-5 rounded-2xl">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider block mb-1 font-semibold">Rating Grade</span>
+                        <span id="res-grade" class="text-3xl font-extrabold text-emerald-400">Passed</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="retakeQuiz()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-6 rounded-xl border border-slate-700 transition flex items-center space-x-2 text-sm">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>Retake Quiz</span>
+                    </button>
+                    <button onclick="scrollToReview()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Review All Answers</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Answer Review Container -->
+            <div id="review-section" class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl backdrop-blur-xl space-y-6">
+                <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                    <h3 class="text-xl font-bold text-white flex items-center">
+                        <i class="fa-solid fa-clipboard-question text-indigo-400 mr-3"></i> Detailed Answer Key & Explanations
+                    </h3>
+                    <span class="text-xs text-slate-400">Course: Macro Perspective of Tourism & Hospitality</span>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-slate-900/80 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-12">
+        <p>Macro Perspective of Tourism & Hospitality • Developed for Interactive Student Review</p>
+    </footer>
+
+    <!-- Custom Modal for Confirmation -->
+    <div id="confirm-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 md:p-8 space-y-5 shadow-2xl fade-in">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mx-auto">
+                <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <div class="text-center space-y-2">
+                <h3 class="text-xl font-bold text-white">Ready to Submit?</h3>
+                <p id="unanswered-warning" class="text-slate-300 text-sm">You have answered <span id="modal-answered-count">0</span> of 40 questions. Are you sure you want to finish and view your grade?</p>
+            </div>
+            <div class="flex items-center space-x-3 pt-2">
+                <button onclick="closeModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-3 px-4 rounded-xl border border-slate-700 transition text-sm">
+                    Return to Quiz
+                </button>
+                <button onclick="submitQuizFinal()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition text-sm">
+                    Yes, Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 40 Quiz Items based strictly on PDF materials
+        const baseQuizData = [
+            // --- MULTIPLE CHOICE (1 to 15) ---
+            {
+                id: 1,
+                type: "mc",
+                category: "Tourism Components",
+                question: "Which category of tourism and hospitality components includes travel agencies, hotels, retail shops, restaurants, airlines, and ground transportation that provide direct services to the traveler?",
+                options: [
+                    "Category II: Support Services",
+                    "Category I: Direct Providers to the Traveler",
+                    "Category III: Tourism Developmental Organizations",
+                    "Category IV: Infrastructure & Superstructure"
+                ],
+                answer: 1,
+                explanation: "Category I consists of Direct Providers to the traveler such as travel agencies, hotels, restaurants, airlines, and ground transportation."
+            },
+            {
+                id: 2,
+                type: "mc",
+                category: "Tourism Components",
+                question: "Contract laundry, food suppliers, tour organizers, and travel publications that serve direct providers and indirectly affect travelers belong to which category?",
+                options: [
+                    "Category I",
+                    "Category II",
+                    "Category III",
+                    "Category V"
+                ],
+                answer: 1,
+                explanation: "Category II comprises support services like contract laundry, food suppliers, and tour organizers providing services directly to direct providers and indirectly to the traveler."
+            },
+            {
+                id: 3,
+                type: "mc",
+                category: "5 Main Categories",
+                question: "According to the course materials, above-ground facility services such as airport buildings, hotels, motels, and museums are classified under which of the 5 main categories?",
+                options: [
+                    "Infrastructure",
+                    "Superstructure",
+                    "Natural Resources",
+                    "Hospitality Resources"
+                ],
+                answer: 1,
+                explanation: "Superstructures refer to above-ground facility services such as airport buildings, hotels, motels, and museums."
+            },
+            {
+                id: 4,
+                type: "mc",
+                category: "International Organizations",
+                question: "What is recognized as the chief international organization in the field of travel and tourism, beginning its legal existence on January 2, 1975?",
+                options: [
+                    "IATA",
+                    "WTTC",
+                    "UNWTO (United Nations World Tourism Organization)",
+                    "OECD"
+                ],
+                answer: 2,
+                explanation: "UNWTO is the chief international organization in travel and tourism, operating as an intergovernmental technical body since January 2, 1975."
+            },
+            {
+                id: 5,
+                type: "mc",
+                category: "International Organizations",
+                question: "Established in 1945 in Havana, which international body is composed of airline operators attached to national delegations of the Chicago conference to promote safe and economical air transport?",
+                options: [
+                    "PATA",
+                    "IATA (International Air Transport Association)",
+                    "APEC",
+                    "OAS"
+                ],
+                answer: 1,
+                explanation: "IATA was established in 1945 in Havana, composed of airline operators to promote safe, regular, and economical air transport."
+            },
+            {
+                id: 6,
+                type: "mc",
+                category: "International Organizations",
+                question: "Which global body is the only forum whose members are top decision-makers in travel and tourism representing the private sector worldwide, driving on 3 strategic priorities?",
+                options: [
+                    "WTTC (World Travel and Tourism Council)",
+                    "OECD",
+                    "CTA",
+                    "UFTAA"
+                ],
+                answer: 0,
+                explanation: "WTTC is the only global forum representing the private sector in all parts of the industry worldwide, focusing on freedom of travel, policies for growth, and tourism for tomorrow."
+            },
+            {
+                id: 7,
+                type: "mc",
+                category: "International Organizations",
+                question: "Organized in Hawaii in 1951 with a purpose to develop, promote, and facilitate travel in the Pacific area while conserving the environment for future generations is:",
+                options: [
+                    "APEC",
+                    "PATA (Pacific Asia Travel Association)",
+                    "OAS",
+                    "CTA"
+                ],
+                answer: 1,
+                explanation: "PATA was organized in Hawaii in 1951 to develop, promote, and facilitate travel in the Pacific area without compromising environmental conservation."
+            },
+            {
+                id: 8,
+                type: "mc",
+                category: "Philippine Tourism Agencies",
+                question: "Under Republic Act No. 9593 (Tourism Act of 2009), which corporate body is tasked to designate, regulate, and supervise Tourism Enterprise Zones (TEZs)?",
+                options: [
+                    "TPB",
+                    "TIEZA (Tourism Infrastructure and Enterprise Zone Authority)",
+                    "NPDC",
+                    "DFPC"
+                ],
+                answer: 1,
+                explanation: "TIEZA (formerly PTA) is tasked under R.A. 9593 to designate, regulate, and supervise TEZs as engines for socio-economic growth."
+            },
+            {
+                id: 9,
+                type: "mc",
+                category: "Philippine Tourism Agencies",
+                question: "Which agency, formerly known as the Philippine Convention and Visitors Corporation (PCVC), is responsible for marketing and promoting the Philippines domestically and internationally?",
+                options: [
+                    "TPB (Tourism Promotions Board)",
+                    "NPF",
+                    "PRA",
+                    "PCSSD"
+                ],
+                answer: 0,
+                explanation: "TPB (Tourism Promotions Board) is responsible for marketing and promoting the Philippines globally and domestically for the DOT."
+            },
+            {
+                id: 10,
+                type: "mc",
+                category: "Philippine Tourism Agencies",
+                question: "Presidential Decree No. 1616, signed by President Ferdinand Marcos in 1979, established which administration to ensure the orderly restoration and development of historical Spanish architecture?",
+                options: [
+                    "National Parks Development Committee",
+                    "Intramuros Administration",
+                    "Nayong Pilipino Foundation",
+                    "Philippine Retirement Authority"
+                ],
+                answer: 1,
+                explanation: "Intramuros Administration was established by PD No. 1616 in 1979 to oversee the orderly restoration of Intramuros conforming to 16th to 19th-century Spanish-Philippine architecture."
+            },
+            {
+                id: 11,
+                type: "mc",
+                category: "Philippine Tourism Agencies",
+                question: "What law provides balikbayans with special tax-free shopping privileges in government-owned duty-free shops operated by DFPC?",
+                options: [
+                    "Local Government Code of 1991",
+                    "Balikbayan Law",
+                    "Tourism Act of 2009",
+                    "Executive Order No. 1037"
+                ],
+                answer: 1,
+                explanation: "The Balikbayan Law provides balikbayans with special tax-free shopping privileges in government-owned duty-free shops to showcase outstanding Filipino-made products."
+            },
+            {
+                id: 12,
+                type: "mc",
+                category: "Philippine Tourism Agencies",
+                question: "What special visa, issued by the Philippine Retirement Authority (PRA), is a multiple-entry visa with limited tax-free privileges for qualified foreign retirees?",
+                options: [
+                    "SRRV (Special Resident Retiree's Visa)",
+                    "TEZ Visa",
+                    "Balikbayan Pass",
+                    "Scuba Diving Permit"
+                ],
+                answer: 0,
+                explanation: "PRA issues the Special Resident Retiree's Visa (SRRV), a multiple-entry visa with limited tax-free privileges for foreign retirees and former Filipinos."
+            },
+            {
+                id: 13,
+                type: "mc",
+                category: "Economic Impacts",
+                question: "What economic concept states that economic success in tourism encourages further investment by private business and government agencies?",
+                options: [
+                    "Multiplier Effect",
+                    "Accelerator Concept",
+                    "Leakage Effect",
+                    "Seasonality Concept"
+                ],
+                answer: 1,
+                explanation: "The accelerator concept dictates that economic success encourages further investment by private businesses and government agencies."
+            },
+            {
+                id: 14,
+                type: "mc",
+                category: "Economic Impacts",
+                question: "Which of the following is considered a negative economic effect of tourism?",
+                options: [
+                    "Income generation and redistribution",
+                    "Balance of payments improvement",
+                    "High leakages through imported goods and foreign profit remittances",
+                    "Employment creation across direct and indirect levels"
+                ],
+                answer: 2,
+                explanation: "High leakages (earnings leaving the destination via imported goods, foreign profits, and overseas marketing) is a negative economic effect."
+            },
+            {
+                id: 15,
+                type: "mc",
+                category: "Control Measures",
+                question: "According to Edward Inskeep and UNWTO control measures, how should tourism be developed in a destination?",
+                options: [
+                    "Rapidly and aggressively to maximize short-term cash flow",
+                    "Gradually so local communities can adapt",
+                    "Exclusively with foreign-owned infrastructure",
+                    "Without local resident participation in governance"
+                ],
+                answer: 1,
+                explanation: "Inskeep and UNWTO recommend developing tourism gradually so local communities can adapt, diversifying local economies, and involving residents in planning."
+            },
+
+            // --- IDENTIFICATION (16 to 25) ---
+            {
+                id: 16,
+                type: "id",
+                category: "Tourist Typologies",
+                question: "According to Plog/tourist typologies, what type of tourist is very limited in number, fully adapts to local lifestyles, and requires no special tourist amenities?",
+                answerKey: "explorer",
+                explanation: "An Explorer is very limited in number, fully adapts to local lifestyles, and requires no special tourist amenities."
+            },
+            {
+                id: 17,
+                type: "id",
+                category: "Tourist Typologies",
+                question: "What tourist typology describes travelers who are very few, well-traveled ('jet-setters') who adapt fully to local life but require comfort?",
+                answerKey: "elite",
+                explanation: "Elite tourists are very few, well-traveled jet-setters who adapt fully but require comfort."
+            },
+            {
+                id: 18,
+                type: "id",
+                category: "Cultural Impacts",
+                question: "What term describes cultural change resulting from borrowing technology, language, and values between host communities and visitors?",
+                answerKey: "acculturation",
+                explanation: "Acculturation is the cultural change resulting from borrowing technology, language, and values between host communities and visitors."
+            },
+            {
+                id: 19,
+                type: "id",
+                category: "Cultural Impacts",
+                question: "What term describes the tendency of world cultures to become more similar through contact and exposure to industrialized or Western ways?",
+                answerKey: "cultural convergence",
+                explanation: "Cultural convergence is the tendency of world cultures to become more similar through contact and exposure to industrialized/Western ways."
+            },
+            {
+                id: 20,
+                type: "id",
+                category: "Cultural Impacts",
+                question: "What spaces are established to showcase living heritage (such as the Polynesia Cultural Center in Hawaii or Rose Garden in Bangkok) without disrupting everyday community life?",
+                answerKey: "model culture villages",
+                explanation: "Model culture villages ('living museums') provide spaces to showcase living heritage without disrupting everyday community life."
+            },
+            {
+                id: 21,
+                type: "id",
+                category: "Organizations",
+                question: "What does the acronym APEC stand for in international economic and tourism cooperation?",
+                answerKey: "asia-pacific economic cooperation",
+                explanation: "APEC stands for Asia-Pacific Economic Cooperation."
+            },
+            {
+                id: 22,
+                type: "id",
+                category: "Organizations",
+                question: "What does the acronym TTRA stand for in professional travel research associations?",
+                answerKey: "travel and tourism research association",
+                explanation: "TTRA stands for Travel and Tourism Research Association, concerned with improving research quality and teaching in tourism."
+            },
+            {
+                id: 23,
+                type: "id",
+                category: "Organizations",
+                question: "Founded in 1952, what major Philippine organization has the main objective to upgrade management skills and personnel services in hotels and restaurants?",
+                answerKey: "hrap",
+                explanation: "HRAP (Hotel and Restaurant Association of the Philippines) was founded on Sept 12, 1952, to upgrade management skills and personnel standards."
+            },
+            {
+                id: 24,
+                type: "id",
+                category: "Organizations",
+                question: "What official association of non-IATA travel agencies was established in 1986 to unify various non-IATA travel agents and have 'one solid voice'?",
+                answerKey: "naitas",
+                explanation: "NAITAS (Network of Independent Travel Agencies) is the official association of non-IATA travel agencies established in 1986."
+            },
+            {
+                id: 25,
+                type: "id",
+                category: "Environmental Impacts",
+                question: "What critical limit refers to the maximum number of visitors a destination can support before experiencing degradation of fragile ecosystems and natural resources?",
+                answerKey: "carrying capacity",
+                explanation: "Carrying capacity is the threshold where surpassing saturation limits degrades fragile destinations."
+            },
+
+            // --- TRUE OR FALSE (26 to 40) ---
+            {
+                id: 26,
+                type: "tf",
+                category: "Tourism Components",
+                question: "Natural resources include elements in an area for the use and enjoyment of visitors such as climate, landforms, flora, fauna, and water supply for sanitation.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Natural resources include climate, landforms, flora, fauna, bodies of water, beaches, and water supply for drinking and sanitation."
+            },
+            {
+                id: 27,
+                type: "tf",
+                category: "Tourism Components",
+                question: "Category III tourism developmental organizations include contract laundry, food suppliers, and tour organizers.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "False. Contract laundry and food suppliers belong to Category II (Support Services). Category III includes planners, government agencies, financial institutions, and real estate developers."
+            },
+            {
+                id: 28,
+                type: "tf",
+                category: "International Organizations",
+                question: "The Organization for Economic Cooperation and Development (OECD) was set up in a convention signed in Paris on December 04, 1960.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. OECD was set up in a convention signed in Paris on December 4, 1960, to promote sustainable economic growth and employment."
+            },
+            {
+                id: 29,
+                type: "tf",
+                category: "Philippine Tourism Agencies",
+                question: "The National Parks Development Committee (NPDC) was established on January 14, 1963 by Executive Order No. 30 specifically for developing national parks like Rizal Park and Quezon Memorial Circle.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. NPDC was established by EO No. 30 in 1963 to oversee and develop national parks such as Rizal Park (Luneta) and Quezon Memorial Circle."
+            },
+            {
+                id: 30,
+                type: "tf",
+                category: "Philippine Tourism Agencies",
+                question: "The Philippine Commission on Sports Scuba Diving (PCSSD) is mandated to develop programs to position the country as a premier diving destination in Asia and regulate dive establishments.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. PCSSD issues licenses, regulates dive establishments, and develops the country as a premier diving destination in Asia."
+            },
+            {
+                id: 31,
+                type: "tf",
+                category: "Economic Impacts",
+                question: "Seasonality in tourism refers to demand fluctuations that lead to off-season revenue drops, low occupancy rates, and unstable return on investment.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Seasonality is a negative economic effect caused by demand fluctuations creating low occupancy rates and unstable returns."
+            },
+            {
+                id: 32,
+                type: "tf",
+                category: "Economic Impacts",
+                question: "Direct employment in tourism refers to jobs generated by outside businesses like local construction workers and retail grocers spending their earnings.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "False. Direct employment refers to frontline services (hotels, restaurants). Jobs created by employee spending on outside goods are known as 'induced' employment."
+            },
+            {
+                id: 33,
+                type: "tf",
+                category: "Social Impacts",
+                question: "The empowerment of women through tourism and hospitality is considered a negative social effect because it causes severe domestic disruption in all households.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "False. Empowerment of women is a positive social effect as it increases household income through female workforce participation and supports higher education."
+            },
+            {
+                id: 34,
+                type: "tf",
+                category: "Social Impacts",
+                question: "The 'demonstration effect' in tourism can lead to polarization caused by wealthy visitors consuming luxury goods amidst local poverty and the imitation of Western materialism.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Negative demonstrative effects involve polarization, imitation of inappropriate behaviors, materialism, and abandonment of local diets."
+            },
+            {
+                id: 35,
+                type: "tf",
+                category: "Cultural Impacts",
+                question: "Isolated populations living in remote deserts, jungles, or polar areas generally experience the highest and most rapid rates of cultural change due to tourism.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "False. Isolated populations change the least; communities with high tourist influx and Western exposure experience faster cultural convergence and acculturation."
+            },
+            {
+                id: 36,
+                type: "tf",
+                category: "Cultural Impacts",
+                question: "Condensing sacred rituals and traditional cultural dances into short commercial floor shows to fit tourist schedules is an example of loss of authenticity.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Condensing sacred rituals into short commercial floor shows represents a negative cultural impact known as loss of authenticity."
+            },
+            {
+                id: 37,
+                type: "tf",
+                category: "Environmental Impacts",
+                question: "Tourism always results in positive environmental impacts without any risk of pollution, habitat destruction, or geological vandalism.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "False. Uncontrolled tourism causes negative environmental impacts including air/water pollution, trampling of flora, wildlife poaching, and exceeding carrying capacity."
+            },
+            {
+                id: 38,
+                type: "tf",
+                category: "Control Measures",
+                question: "Zoning and land use controls enforce building codes regarding maximum height, structural appearance, setbacks, and local architectural harmony to protect environmental and cultural aesthetics.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Zoning and land use controls are vital planning and regulatory tools to maintain local architectural harmony and protect environmental aesthetics."
+            },
+            {
+                id: 39,
+                type: "tf",
+                category: "Professional Organizations",
+                question: "The Council on Hotel, Restaurant, and Institutional Education (CHRIE) is a nonprofit association founded in 1946 for schools and universities offering programs in hospitality and culinary arts.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. CHRIE was founded in 1946 to foster international advancement of teaching, training, and research in hospitality and tourism."
+            },
+            {
+                id: 40,
+                type: "tf",
+                category: "Tourist Typologies",
+                question: "Mass and charter tourists typically expect standard Western amenities and demand high service standardization with relatively impersonal interaction with local hosts.",
+                options: ["True", "False"],
+                answer: 0,
+                explanation: "True. Mass and charter tourists expect standard Western amenities, high service standardization, and engage in more impersonal host-visitor interactions."
+            }
+        ];
+
+        let quizData = [];
+        let studentName = "";
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // stores user selected option index or text input value
+        let timerInterval = null;
+        let timeRemaining = 45 * 60; // 45 minutes in seconds
+
+        // Fisher-Yates shuffle algorithm
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Start Quiz
+        function startQuiz() {
+            const nameInput = document.getElementById("input-student-name");
+            const nameError = document.getElementById("name-error");
+
+            if (!nameInput.value.trim()) {
+                nameError.classList.remove("hidden");
+                nameInput.focus();
+                return;
+            }
+            nameError.classList.add("hidden");
+            studentName = nameInput.value.trim();
+
+            // Shuffle questions every time quiz starts or retakes
+            quizData = shuffleArray(baseQuizData);
+            userAnswers = {};
+            currentQuestionIndex = 0;
+            timeRemaining = 45 * 60;
+
+            document.getElementById("student-name-display").textContent = studentName;
+            document.getElementById("quiz-header-info").classList.remove("hidden");
+            document.getElementById("quiz-header-info").classList.add("flex");
+
+            // Switch screens
+            document.getElementById("screen-welcome").classList.add("hidden");
+            document.getElementById("screen-results").classList.add("hidden");
+            document.getElementById("screen-quiz").classList.remove("hidden");
+
+            buildQuestionDots();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        // Timer function
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuizFinal();
+                    return;
+                }
+                timeRemaining--;
+                let minutes = Math.floor(timeRemaining / 60);
+                let seconds = timeRemaining % 60;
+                document.getElementById("timer-display").textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // Build Navigation Dots
+        function buildQuestionDots() {
+            const container = document.getElementById("question-dots");
+            container.innerHTML = "";
+            quizData.forEach((q, idx) => {
+                const dot = document.createElement("button");
+                dot.id = `dot-${idx}`;
+                dot.textContent = idx + 1;
+                dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border ${
+                    idx === 0 
+                        ? 'bg-indigo-600 text-white border-indigo-500 shadow-md' 
+                        : 'bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700'
+                }`;
+                dot.onclick = () => jumpToQuestion(idx);
+                container.appendChild(dot);
+            });
+        }
+
+        // Update Dots styling
+        function updateDots() {
+            quizData.forEach((q, idx) => {
+                const dot = document.getElementById(`dot-${idx}`);
+                if (!dot) return;
+                const isAnswered = userAnswers[idx] !== undefined && userAnswers[idx] !== "";
+                
+                if (idx === currentQuestionIndex) {
+                    dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border bg-indigo-600 text-white border-indigo-400 shadow-md scale-105`;
+                } else if (isAnswered) {
+                    dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border bg-emerald-950/80 text-emerald-300 border-emerald-700`;
+                } else {
+                    dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700`;
+                }
+            });
+        }
+
+        // Load specific question
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizData[index];
+
+            // Determine question type label
+            let typeLabel = "Multiple Choice";
+            if (q.type === "id") typeLabel = "Identification";
+            if (q.type === "tf") typeLabel = "True or False";
+
+            document.getElementById("current-q-num").textContent = index + 1;
+            document.getElementById("question-category-tag").textContent = `${typeLabel} • ${q.category}`;
+            
+            // Progress bar
+            const progressPercent = ((index + 1) / quizData.length) * 100;
+            document.getElementById("progress-bar-fill").style.width = `${progressPercent}%`;
+
+            // Question text
+            document.getElementById("question-text").textContent = `${index + 1}. ${q.question}`;
+
+            // Options container
+            const optionsContainer = document.getElementById("answer-options-container");
+            optionsContainer.innerHTML = "";
+
+            if (q.type === "mc" || q.type === "tf") {
+                q.options.forEach((optText, optIdx) => {
+                    const isSelected = userAnswers[index] === optIdx;
+                    const btn = document.createElement("button");
+                    btn.className = `w-full text-left p-4 rounded-xl border transition flex items-center space-x-3 text-sm md:text-base ${
+                        isSelected 
+                            ? 'bg-indigo-600/20 border-indigo-500 text-white shadow-md' 
+                            : 'bg-slate-950/50 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:border-slate-700'
+                    }`;
+                    
+                    btn.innerHTML = `
+                        <div class="w-6 h-6 rounded-full border flex items-center justify-center text-xs font-bold ${
+                            isSelected ? 'bg-indigo-600 border-indigo-400 text-white' : 'border-slate-700 text-slate-400'
+                        }">
+                            ${String.fromCharCode(65 + optIdx)}
+                        </div>
+                        <span class="flex-grow">${optText}</span>
+                    `;
+                    btn.onclick = () => selectOption(index, optIdx);
+                    optionsContainer.appendChild(btn);
+                });
+            } else if (q.type === "id") {
+                const currentVal = userAnswers[index] || "";
+                const wrapper = document.createElement("div");
+                wrapper.className = "space-y-2";
+                wrapper.innerHTML = `
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Type your precise answer:</label>
+                    <input type="text" id="id-input-${index}" value="${currentVal}" placeholder="e.g. Acculturation" 
+                        class="w-full bg-slate-950 border border-slate-700 text-slate-100 placeholder-slate-600 text-sm md:text-base rounded-xl px-4 py-3.5 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition shadow-inner"
+                        oninput="saveIdentificationAnswer(${index}, this.value)">
+                    <p class="text-xs text-slate-500"><i class="fa-solid fa-lightbulb mr-1 text-amber-400"></i> Answers are evaluated case-insensitively.</p>
+                `;
+                optionsContainer.appendChild(wrapper);
+            }
+
+            // Prev / Next button states
+            document.getElementById("btn-prev").disabled = index === 0;
+            const nextBtn = document.getElementById("btn-next");
+            if (index === quizData.length - 1) {
+                nextBtn.innerHTML = `<span>Review</span> <i class="fa-solid fa-check ml-1"></i>`;
+            } else {
+                nextBtn.innerHTML = `<span>Next</span> <i class="fa-solid fa-chevron-right ml-1"></i>`;
+            }
+
+            updateDots();
+        }
+
+        function selectOption(qIdx, optIdx) {
+            userAnswers[qIdx] = optIdx;
+            loadQuestion(qIdx);
+        }
+
+        function saveIdentificationAnswer(qIdx, val) {
+            userAnswers[qIdx] = val;
+            updateDots();
+        }
+
+        function jumpToQuestion(index) {
+            if (index < 0 || index >= quizData.length) return;
+            loadQuestion(index);
+        }
+
+        // Confirmation modal triggers
+        function confirmSubmitQuiz() {
+            let answeredCount = 0;
+            quizData.forEach((q, idx) => {
+                if (userAnswers[idx] !== undefined && userAnswers[idx] !== "" && userAnswers[idx] !== null) {
+                    answeredCount++;
+                }
+            });
+
+            document.getElementById("modal-answered-count").textContent = answeredCount;
+            document.getElementById("confirm-modal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("confirm-modal").classList.add("hidden");
+        }
+
+        // Final Quiz Submission & Grading
+        function submitQuizFinal() {
+            clearInterval(timerInterval);
+            document.getElementById("confirm-modal").classList.add("hidden");
+            document.getElementById("quiz-header-info").classList.add("hidden");
+            document.getElementById("screen-quiz").classList.add("hidden");
+            document.getElementById("screen-results").classList.remove("hidden");
+
+            // Calculate score
+            let score = 0;
+            quizData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (q.type === "mc" || q.type === "tf") {
+                    if (userAns === q.answer) {
+                        score++;
+                    }
+                } else if (q.type === "id") {
+                    if (userAns && typeof userAns === "string") {
+                        const cleanedUser = userAns.trim().toLowerCase();
+                        const cleanedCorrect = q.answerKey.trim().toLowerCase();
+                        if (cleanedUser === cleanedCorrect || cleanedUser.includes(cleanedCorrect)) {
+                            score++;
+                        }
+                    }
+                }
+            });
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            
+            document.getElementById("res-student-name").textContent = studentName;
+            document.getElementById("res-score").textContent = `${score} / 40`;
+            document.getElementById("res-percentage").textContent = `${percentage}%`;
+
+            const gradeEl = document.getElementById("res-grade");
+            const trophyEl = document.getElementById("result-trophy-icon");
+
+            if (percentage >= 75) {
+                gradeEl.textContent = "Passed 🏆";
+                gradeEl.className = "text-3xl font-extrabold text-emerald-400";
+                trophyEl.className = "fa-solid fa-trophy text-amber-400";
+                
+                // Trigger confetti celebration
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 120,
+                        spread: 80,
+                        origin: { y: 0.6 }
+                    });
+                }
+            } else {
+                gradeEl.textContent = "Needs Review 📚";
+                gradeEl.className = "text-3xl font-extrabold text-rose-400";
+                trophyEl.className = "fa-solid fa-book-open text-indigo-400";
+            }
+
+            buildReviewList();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Build detailed review list
+        function buildReviewList() {
+            const container = document.getElementById("review-questions-list");
+            container.innerHTML = "";
+
+            quizData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                let isCorrect = false;
+                let userAnsDisplay = "Not Answered";
+                let correctAnsDisplay = "";
+
+                if (q.type === "mc" || q.type === "tf") {
+                    if (userAns !== undefined && userAns !== null) {
+                        userAnsDisplay = q.options[userAns];
+                        if (userAns === q.answer) isCorrect = true;
+                    }
+                    correctAnsDisplay = q.options[q.answer];
+                } else if (q.type === "id") {
+                    if (userAns && typeof userAns === "string" && userAns.trim() !== "") {
+                        userAnsDisplay = userAns;
+                        const cleanedUser = userAns.trim().toLowerCase();
+                        const cleanedCorrect = q.answerKey.trim().toLowerCase();
+                        if (cleanedUser === cleanedCorrect || cleanedUser.includes(cleanedCorrect)) {
+                            isCorrect = true;
+                        }
+                    }
+                    correctAnsDisplay = q.answerKey;
+                }
+
+                const itemDiv = document.createElement("div");
+                itemDiv.className = `p-5 rounded-2xl border ${
+                    isCorrect 
+                        ? 'bg-emerald-950/20 border-emerald-900/50' 
+                        : 'bg-rose-950/20 border-rose-900/50'
+                }`;
+
+                let optionsSummaryHtml = "";
+                if (q.type === "mc" || q.type === "tf") {
+                    optionsSummaryHtml = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 text-xs">`;
+                    q.options.forEach((opt, oIdx) => {
+                        let badgeClass = "bg-slate-900/50 border-slate-800 text-slate-400";
+                        if (oIdx === q.answer) badgeClass = "bg-emerald-950 border-emerald-700 text-emerald-300 font-semibold";
+                        else if (oIdx === userAns && !isCorrect) badgeClass = "bg-rose-950 border-rose-700 text-rose-300";
+                        
+                        optionsSummaryHtml += `<div class="p-2.5 rounded-xl border ${badgeClass}"><strong>${String.fromCharCode(65 + oIdx)}.</strong> ${opt}</div>`;
+                    });
+                    optionsSummaryHtml += `</div>`;
+                }
+
+                itemDiv.innerHTML = `
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${
+                                isCorrect ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/10 text-rose-400 border border-rose-500/30'
+                            }">
+                                ${isCorrect ? '<i class="fa-solid fa-check mr-1"></i> Correct' : '<i class="fa-solid fa-xmark mr-1"></i> Incorrect'}
+                            </span>
+                            <h4 class="text-base font-semibold text-white pt-2">Q${idx + 1}. ${q.question}</h4>
+                        </div>
+                    </div>
+                    
+                    ${optionsSummaryHtml}
+
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 text-xs space-y-1">
+                        <p class="text-slate-300">Your Answer: <strong class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${userAnsDisplay}</strong></p>
+                        ${!isCorrect ? `<p class="text-slate-300">Correct Answer: <strong class="text-emerald-400">${correctAnsDisplay}</strong></p>` : ''}
+                        <p class="text-indigo-300 pt-1"><i class="fa-solid fa-circle-info mr-1"></i> <strong>Explanation:</strong> ${q.explanation}</p>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function scrollToReview() {
+            document.getElementById("review-section").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function retakeQuiz() {
+            userAnswers = {};
+            currentQuestionIndex = 0;
+            timeRemaining = 45 * 60;
+            document.getElementById("screen-results").classList.add("hidden");
+            document.getElementById("screen-welcome").classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
