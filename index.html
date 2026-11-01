@@ -450,9 +450,37 @@ function restoreAnswers() {
         const input = form.querySelector(`input[name="q${q.id}"][value="${values[q.id]}"]`);
         if (input) input.checked = true;
       }
+      showQuestionFeedback(q);
     });
   } catch (_) { localStorage.removeItem("mth-reviewer-answers"); }
   updateProgress();
+}
+
+function clearQuestionFeedback(q) {
+  const card = document.getElementById(`question-${q.id}`);
+  card.classList.remove("correct", "incorrect");
+  card.querySelector(".answer-feedback").textContent = "";
+  card.querySelectorAll(".option").forEach(option => option.classList.remove("correct-answer"));
+}
+
+function showQuestionFeedback(q, revealEmpty = false) {
+  const value = getValue(q);
+  if (value === "" && !revealEmpty) {
+    clearQuestionFeedback(q);
+    return false;
+  }
+
+  const correct = value !== "" && isCorrect(q, value);
+  const card = document.getElementById(`question-${q.id}`);
+  card.classList.remove("correct", "incorrect");
+  card.classList.add(correct ? "correct" : "incorrect");
+  const correctText = q.type === "id" ? q.answerText : q.options[q.answer];
+  card.querySelector(".answer-feedback").textContent = correct
+    ? `Correct - ${correctText}`
+    : `Correct answer: ${correctText}`;
+  card.querySelectorAll(".option").forEach(option => option.classList.remove("correct-answer"));
+  if (q.type !== "id") card.querySelectorAll(".option")[q.answer].classList.add("correct-answer");
+  return correct;
 }
 
 function gradeQuiz(event) {
@@ -460,17 +488,7 @@ function gradeQuiz(event) {
   submitted = true;
   let score = 0;
   questions.forEach(q => {
-    const value = getValue(q);
-    const correct = isCorrect(q, value);
-    if (correct) score += 1;
-    const card = document.getElementById(`question-${q.id}`);
-    card.classList.remove("correct", "incorrect");
-    card.classList.add(correct ? "correct" : "incorrect");
-    const feedback = card.querySelector(".answer-feedback");
-    const correctText = q.type === "id" ? q.answerText : q.options[q.answer];
-    feedback.textContent = correct ? `Correct - ${correctText}` : `Correct answer: ${correctText}`;
-    card.querySelectorAll(".option").forEach(option => option.classList.remove("correct-answer"));
-    if (q.type !== "id") card.querySelectorAll(".option")[q.answer].classList.add("correct-answer");
+    if (showQuestionFeedback(q, true)) score += 1;
   });
 
   const result = document.getElementById("resultPanel");
@@ -510,14 +528,28 @@ function updateActiveSection() {
 
 renderQuiz();
 restoreAnswers();
-form.addEventListener("input", () => {
+form.addEventListener("input", event => {
   if (submitted) {
     submitted = false;
     document.getElementById("resultPanel").hidden = true;
-    document.querySelectorAll(".question-card").forEach(card => card.classList.remove("correct", "incorrect"));
-    document.querySelectorAll(".option").forEach(option => option.classList.remove("correct-answer"));
+  }
+  if (event.target.matches(".answer-input")) {
+    const id = Number(event.target.closest(".question-card").dataset.question);
+    clearQuestionFeedback(questions.find(q => q.id === id));
   }
   updateProgress();
+});
+form.addEventListener("change", event => {
+  const card = event.target.closest(".question-card");
+  if (!card) return;
+  showQuestionFeedback(questions.find(q => q.id === Number(card.dataset.question)));
+});
+form.addEventListener("keydown", event => {
+  if (event.key !== "Enter" || !event.target.matches(".answer-input")) return;
+  event.preventDefault();
+  const id = Number(event.target.closest(".question-card").dataset.question);
+  showQuestionFeedback(questions.find(q => q.id === id));
+  event.target.blur();
 });
 form.addEventListener("submit", gradeQuiz);
 document.getElementById("resetTop").addEventListener("click", resetQuiz);
